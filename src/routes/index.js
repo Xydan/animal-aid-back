@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
   // Client's shouldn't cache this response (always request it fresh)
   res.setHeader('Cache-Control', 'no-cache');
   // Send a 200 'OK' response
-  res.status(200).json(createSuccessResponse({author,githubUrl: 'https://github.com/MDXCODE/animal-aid-back', version}));
+  res.status(200).json(createSuccessResponse({author,githubUrl: 'https://github.com/Xydan/animal-aid-back', version}));
 });
 
 router.get('/profile/person/joseph', (req, res)=>{
