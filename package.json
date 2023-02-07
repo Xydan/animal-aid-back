@@ -1,0 +1,48 @@
+{
+  "name": "fragments",
+  "version": "0.0.1",
+  "private": true,
+  "description": "CCP555 - Lab 1",
+  "scripts": {
+    "test": "jest -c jest.config.js --runInBand --",
+    "test:watch": "jest -c jest.config.js --runInBand --watch --",
+    "coverage": "jest -c jest.config.js --runInBand --coverage",
+    "lint": "eslint --config .eslintrc.js src/** tests/**",
+    "start": "node src/index.js",
+    "dev": "LOG_LEVEL=debug nodemon ./src/index.js --watch src",
+    "debug": "LOG_LEVEL=debug nodemon --inspect=0.0.0.0:9229 ./src/index.js --watch src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xydan/fragments.git"
+  },
+  "keywords": [],
+  "author": "Andy Li",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/Xydan/fragments/issues"
+  },
+  "homepage": "https://github.com/Xydan/fragments#readme",
+  "devDependencies": {
+    "eslint": "^8.31.0",
+    "jest": "^29.4.1",
+    "nodemon": "^2.0.20",
+    "supertest": "^6.3.3"
+  },
+  "dependencies": {
+    "aws-jwt-verify": "^3.3.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "http-auth": "^4.2.0",
+    "http-auth-passport": "^1.0.7",
+    "passport": "^0.6.0",
+    "passport-http-bearer": "^1.0.1",
+    "pino": "^8.8.0",
+    "pino-http": "^8.3.1",
+    "pino-pretty": "^9.1.1",
+    "stoppable": "^1.1.0"
+  }
+}

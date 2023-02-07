@@ -1,0 +1,9 @@
+{
+    "Maggie":{
+        "name": "Maggie",
+        "age": "5",
+        "species": "dog",
+        "breed":"German Sheperd",
+        "profile-image":"https://source.unsplash.com/random/?animal"
+    }
+}
