@@ -1,7 +1,5 @@
 const express = require('express');
 const { version, author } = require('../../package.json');
-const {Joseph} = require('../sample/profile-person.json');
-const {Maggie} = require('../sample/profile-pet.json');
 // const { authenticate } = require('../authorization/index');
 const {createSuccessResponse  } = require('../response');
 
@@ -11,7 +9,7 @@ const router = express.Router();
 /**
  * Expose all of our API routes on /v1/* to include an API version.
  */
-router.use(`/v1`, require('./api'));
+router.use(`/api`, require('./api'));
 
 /**
  * Define a simple health check route. If the server is running
@@ -22,14 +20,6 @@ router.get('/', (req, res) => {
   res.setHeader('Cache-Control', 'no-cache');
   // Send a 200 'OK' response
   res.status(200).json(createSuccessResponse({author,githubUrl: 'https://github.com/Xydan/animal-aid-back', version}));
-});
-
-router.get('/profile/person/joseph', (req, res)=>{
-  res.status(200).json(createSuccessResponse(Joseph));
-});
-
-router.get('/profile/pet/maggie', (req, res)=>{
-  res.status(200).json(createSuccessResponse(Maggie));
 });
 
 module.exports = router;

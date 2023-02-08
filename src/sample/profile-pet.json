@@ -1,9 +1,37 @@
 {
-    "Maggie":{
+    "maggie":{
         "name": "Maggie",
         "age": "5",
         "species": "dog",
+        "breed":"Chihuahua",
+        "profile-image":"https://source.unsplash.com/random/?animal"
+    },
+    "colonel":{
+        "name": "Colonel",
+        "age": "7",
+        "species": "dog",
         "breed":"German Sheperd",
+        "profile-image":"https://source.unsplash.com/random/?animal"
+    },
+    "debutante":{
+        "name": "Debutante",
+        "age": "12",
+        "species": "cat",
+        "breed":"Persian",
+        "profile-image":"https://source.unsplash.com/random/?animal"
+    },
+    "sheldon":{
+        "name": "Sheldon",
+        "age": "3",
+        "species": "dog",
+        "breed":"Labrador",
+        "profile-image":"https://source.unsplash.com/random/?animal"
+    },
+    "rascal":{
+        "name": "Rascal",
+        "age": "10",
+        "species": "cat",
+        "breed":"Siamese",
         "profile-image":"https://source.unsplash.com/random/?animal"
     }
 }
