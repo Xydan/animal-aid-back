@@ -23,12 +23,12 @@ app.use(compression()); //compression for middlware
 // passport.use(authenticate.strategy());
 // app.use(passport.initialize());
 
-app.use('/', require('./routes'));
-
 app.use(bodyParser.text({
   inflate: true,
   type: () => true,
 }));
+
+app.use('/', require('./routes'));
 
 // app.get('/', (req, res) => {
 //   // Clients shouldn't cache this response (always request it fresh)
