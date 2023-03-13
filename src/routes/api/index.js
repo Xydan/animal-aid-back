@@ -2,6 +2,7 @@ const express = require('express');
 const {createSuccessResponse  } = require('../../response');
 const {createErrorResponse} = require('../../response');
 const fs = require('fs');
+var crypto = require('crypto');
 const persons = require('../../sample/profile-person.json');
 const pets = require('../../sample/profile-pet.json');
 
@@ -38,13 +39,15 @@ router.post('/person', (req, res)=>{
     var fName= req.body.fName;
     var lName = req.body.lName;
     var desc = req.body.desc;
+    var image = req.body.image;
+    var email = req.body.email; //pk
 
+    var users = persons;
 
-    var users = {};
-    users = persons;
-
-    if(!users[fName]){
-        users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"};
+    if(!email){
+        res.send("Email cannot be empty");
+    }else if(!users[email]){
+        users[email] = {"fname": fName, "lName": lName, "email": email, "desc" : desc, "profile-image": image};
 
         fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
             if (err) throw err;
@@ -60,28 +63,32 @@ router.put('/person', (req, res)=>{
     var fName= req.body.fName;
     var lName = req.body.lName;
     var desc = req.body.desc;
+    var image = req.body.image;
+    var email = req.body.email; //primary key
 
     var users = persons;
 
-    if(users[fName]){
-        users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"};
+    if(!email){
+        res.send("Email cannot be empty");
+
+    }else if(users[email]){
+        users[email] = {"fname": fName, "lName": lName, "email": email, "desc" : desc, "profile-image": image};
 
         fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
             if (err) throw err;
             res.send("Success! User modified!");
         });
-
     }else{
         res.send("User does not exist.");
     }
 });
 
 router.delete('/person', (req, res)=>{
-    var fName = req.body.fName;
+    var email = req.body.email;
     var users = persons;
 
-    if(users[fName]){
-        delete users[fName];
+    if(users[email]){
+        delete users[email];
         
         fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
             if (err) throw err;
@@ -98,11 +105,13 @@ router.post('/pet', (req, res)=>{
     var age = req.body.age;
     var species = req.body.species;
     var breed = req.body.breed;
+    var image = req.body.image;
+    var id = crypto.randomUUID(); //pk
 
    var animals = pets;
 
     if(!animals[name]){
-        animals[name] = {"name": name, "age": age, "species": species, "breed": breed,  "profile-image":"https://source.unsplash.com/random/?animal"};
+        animals[name] = {"name": name, "age": age, "species": species, "breed": breed, "profile-image":image};
     
 
         fs.writeFile('src/sample/profile-pet.json', JSON.stringify(animals), (err)=>{
@@ -121,11 +130,12 @@ router.put('/pet', (req, res)=>{
     var age = req.body.age;
     var species = req.body.species;
     var breed = req.body.breed;
+    var image = req.body.image;
 
     var animals = pets;
 
     if(animals[name]){
-        animals[name] = {"name": name, "age": age, "species": species, "breed": breed,  "profile-image":"https://source.unsplash.com/random/?animal"};
+        animals[name] = {"name": name, "age": age, "species": species, "breed": breed,  "profile-image":image};
 
         fs.writeFile('src/sample/profile-pet.json', JSON.stringify(animals), (err)=>{
             if (err) throw err;
