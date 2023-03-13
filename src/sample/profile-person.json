@@ -2,31 +2,31 @@
     "joseph@email.com": {
         "fName": "Joseph",
         "lName": "Fitz Gerald",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non. Ut eleifend cursus leo quis pellentesque. In molestie enim id porta scelerisque. Praesent porttitor imperdiet tincidunt. Cras mauris dui, ultricies at rhoncus sit amet, pharetra at lorem. Morbi feugiat ut tellus posuere consectetur. Nam scelerisque id velit et elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ac ante dapibus, luctus lacus at, ultrices ex. Nullam tincidunt erat at quam laoreet, vitae scelerisque mauris tempus. Proin vulputate maximus odio, ut ultrices enim molestie ut. Nulla consectetur lacus in tortor luctus laoreet.",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non.",
         "profile-image": "https://source.unsplash.com/random/?people"
     },
     "michelle@email.com": {
         "fName": "Michelle",
         "lName": "Kong",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non. Ut eleifend cursus leo quis pellentesque. In molestie enim id porta scelerisque. Praesent porttitor imperdiet tincidunt. Cras mauris dui, ultricies at rhoncus sit amet, pharetra at lorem. Morbi feugiat ut tellus posuere consectetur. Nam scelerisque id velit et elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ac ante dapibus, luctus lacus at, ultrices ex. Nullam tincidunt erat at quam laoreet, vitae scelerisque mauris tempus. Proin vulputate maximus odio, ut ultrices enim molestie ut. Nulla consectetur lacus in tortor luctus laoreet.",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non.",
         "profile-image": "https://source.unsplash.com/random/?people"
     },
     "danielle@email.com": {
         "fName": "Danielle",
         "lName": "Morrison",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non. Ut eleifend cursus leo quis pellentesque. In molestie enim id porta scelerisque. Praesent porttitor imperdiet tincidunt. Cras mauris dui, ultricies at rhoncus sit amet, pharetra at lorem. Morbi feugiat ut tellus posuere consectetur. Nam scelerisque id velit et elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ac ante dapibus, luctus lacus at, ultrices ex. Nullam tincidunt erat at quam laoreet, vitae scelerisque mauris tempus. Proin vulputate maximus odio, ut ultrices enim molestie ut. Nulla consectetur lacus in tortor luctus laoreet.",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non.",
         "profile-image": "https://source.unsplash.com/random/?people"
     },
     "angela@email.com": {
         "fName": "Angela",
         "lName": "Lysander",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non. Ut eleifend cursus leo quis pellentesque. In molestie enim id porta scelerisque. Praesent porttitor imperdiet tincidunt. Cras mauris dui, ultricies at rhoncus sit amet, pharetra at lorem. Morbi feugiat ut tellus posuere consectetur. Nam scelerisque id velit et elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ac ante dapibus, luctus lacus at, ultrices ex. Nullam tincidunt erat at quam laoreet, vitae scelerisque mauris tempus. Proin vulputate maximus odio, ut ultrices enim molestie ut. Nulla consectetur lacus in tortor luctus laoreet.",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non.",
         "profile-image": "https://source.unsplash.com/random/?people"
     },    
     "richard@email.com": {
         "fName": "Richard",
         "lName": "Williams",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non. Ut eleifend cursus leo quis pellentesque. In molestie enim id porta scelerisque. Praesent porttitor imperdiet tincidunt. Cras mauris dui, ultricies at rhoncus sit amet, pharetra at lorem. Morbi feugiat ut tellus posuere consectetur. Nam scelerisque id velit et elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce ac ante dapibus, luctus lacus at, ultrices ex. Nullam tincidunt erat at quam laoreet, vitae scelerisque mauris tempus. Proin vulputate maximus odio, ut ultrices enim molestie ut. Nulla consectetur lacus in tortor luctus laoreet.",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce fermentum condimentum sem, ut blandit felis dapibus non.",
         "profile-image": "https://source.unsplash.com/random/?people"
     }
 }

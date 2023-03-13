@@ -2,7 +2,7 @@ const express = require('express');
 const {createSuccessResponse  } = require('../../response');
 const {createErrorResponse} = require('../../response');
 const fs = require('fs');
-var crypto = require('crypto');
+// var crypto = require('crypto');
 const persons = require('../../sample/profile-person.json');
 const pets = require('../../sample/profile-pet.json');
 
@@ -14,7 +14,7 @@ router.get('/person/:id', (req, res)=>{
     if(persons[id]){
         res.status(200).json(createSuccessResponse(persons[id]));
     }else{
-        res.status(200).json(createErrorResponse(404, "no specified person exists"));
+        res.status(404).json(createErrorResponse(404, "no specified person exists"));
     }
 });
   
@@ -23,7 +23,7 @@ var id = req.params.id;
 if(pets[id]){
     res.status(200).json(createSuccessResponse(pets[id]));
 }else{
-    res.status(200).json(createErrorResponse(404, "no specified pet exists"));
+    res.status(404).json(createErrorResponse(404, "no specified pet exists"));
 }
 });
 
@@ -45,7 +45,8 @@ router.post('/person', (req, res)=>{
     var users = persons;
 
     if(!email){
-        res.send("Email cannot be empty");
+        res.status(404).json(createErrorResponse(404, "Email cannot be empty"));
+
     }else if(!users[email]){
         users[email] = {"fname": fName, "lName": lName, "email": email, "desc" : desc, "profile-image": image};
 
@@ -55,7 +56,7 @@ router.post('/person', (req, res)=>{
         });
 
     }else{
-        res.send("User already exists.");
+        res.status(404).json(createErrorResponse(404, "User already exists."));
     }
 });
 
@@ -69,7 +70,7 @@ router.put('/person', (req, res)=>{
     var users = persons;
 
     if(!email){
-        res.send("Email cannot be empty");
+        res.status(404).json(createErrorResponse(404, "Email cannot be empty"));
 
     }else if(users[email]){
         users[email] = {"fname": fName, "lName": lName, "email": email, "desc" : desc, "profile-image": image};
@@ -79,7 +80,7 @@ router.put('/person', (req, res)=>{
             res.send("Success! User modified!");
         });
     }else{
-        res.send("User does not exist.");
+        res.status(404).json(createErrorResponse(404, "User does not exist."));
     }
 });
 
@@ -95,7 +96,7 @@ router.delete('/person', (req, res)=>{
             res.send("Success! User deleted.");
         });
     }else{
-        res.send("User does not exist.");
+        res.status(404).json(createErrorResponse(404, "User does not exist."));
     }
 });
 
@@ -106,7 +107,7 @@ router.post('/pet', (req, res)=>{
     var species = req.body.species;
     var breed = req.body.breed;
     var image = req.body.image;
-    var id = crypto.randomUUID(); //pk
+    // var id = crypto.randomUUID(); //pk
 
    var animals = pets;
 
@@ -119,7 +120,7 @@ router.post('/pet', (req, res)=>{
             res.send("Success! Pet written!");
         });
     }else{
-        res.send("Pet already exists!");
+        res.status(404).json(createErrorResponse(404, "Pet already exists."));
     }
 
 });
@@ -142,7 +143,7 @@ router.put('/pet', (req, res)=>{
             res.send("Success! Pet modified!");
         });
     }else{
-        res.send("Pet does not exist.");
+        res.status(404).json(createErrorResponse(404, "Pet does not exist."));
     }
 });
 
@@ -158,7 +159,7 @@ router.delete('/pet', (req, res)=>{
             res.send("Success! Pet deleted.");
         });
     }else{
-        res.send("Pet does not exist");
+        res.status(404).json(createErrorResponse(404, "Pet does not exist."));
     }
 });
 
