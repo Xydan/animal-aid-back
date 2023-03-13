@@ -53,12 +53,13 @@ router.post('/person', (req, res)=>{
         users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"}
     }
 
-    fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
-        if (err) throw err;
-        res.send("Success!")
-    });
+    //     fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
+    //         if (err) throw err;
+    //         res.send("Success!")
+    //     });
+    // });
 
-
+        res.send(users);
     });
 
 });
