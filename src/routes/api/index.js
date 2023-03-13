@@ -1,7 +1,7 @@
 const express = require('express');
 const {createSuccessResponse  } = require('../../response');
 const {createErrorResponse} = require('../../response');
-// const fs = require('fs');
+const fs = require('fs');
 const persons = require('../../sample/profile-person.json');
 const pets = require('../../sample/profile-pet.json');
 
@@ -49,13 +49,9 @@ router.post('/person', (req, res)=>{
         users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"}
     }
 
-    //     fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
-    //         if (err) throw err;
-    //         res.send("Success!")
-    //     });
-    // });
-
-        res.send(req.body);
-    });
-
+        fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
+            if (err) throw err;
+            res.send("Success!")
+        });
+});
 module.exports = router;
