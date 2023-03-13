@@ -9,4 +9,4 @@ module.exports = (req, res)=>{
     }else{
         res.status(404).json(createErrorResponse(404, "no specified pet exists"));
     }
-    }
+};

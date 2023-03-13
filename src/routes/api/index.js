@@ -16,23 +16,23 @@ router.get('/pet', (req, res)=>{
 });
 
 //get specific user or pet
-router.get('/person/:id', require('./get-user'));
+router.get('/person/:id', require('./user/get-user'));
   
-router.get('/pet/:id', require('./get-pet'));
+router.get('/pet/:id', require('./pet/get-pet'));
 
 //create user or pet
-router.post('/person', require('./post-user'));
+router.post('/person', require('./user/post-user'));
 
-router.post('/pet', require('./post-pet'));
+router.post('/pet', require('./pet/post-pet'));
 
 //modify user or pet
-router.put('/person', require('./put-user'));
+router.put('/person', require('./user/put-user'));
 
-router.put('/pet', require('./put-pet'));
+router.put('/pet', require('./pet/put-pet'));
 
 //delete user or pet
-router.delete('/person', require('./delete-user'));
+router.delete('/person', require('./user/delete-user'));
 
-router.delete('/pet', require('./delete-pet'));
+router.delete('/pet', require('./pet/delete-pet'));
 
 module.exports = router;
