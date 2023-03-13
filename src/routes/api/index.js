@@ -82,7 +82,11 @@ router.delete('/person', (req, res)=>{
 
     if(users[fName]){
         delete users[fName];
-        res.send("User deleted.");
+        
+        fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
+            if (err) throw err;
+            res.send("Success! User deleted.");
+        });
     }else{
         res.send("User does not exist.");
     }
@@ -92,7 +96,7 @@ router.delete('/person', (req, res)=>{
 router.post('/pet', (req, res)=>{
     var name = req.body.name;
     var age = req.body.age;
-    var species = req.body.desc;
+    var species = req.body.species;
     var breed = req.body.breed;
 
    var animals = pets;
@@ -115,7 +119,7 @@ router.post('/pet', (req, res)=>{
 router.put('/pet', (req, res)=>{
     var name = req.body.name;
     var age = req.body.age;
-    var species = req.body.desc;
+    var species = req.body.species;
     var breed = req.body.breed;
 
     var animals = pets;
@@ -133,12 +137,16 @@ router.put('/pet', (req, res)=>{
 });
 
 router.delete('/pet', (req, res)=>{
-    var name = req.body.fName;
+    var name = req.body.name;
     var animals = pets;
 
     if(animals[name]){
         delete animals[name];
-        res.send("Success! Pet deleted.");
+
+        fs.writeFile('src/sample/profile-pet.json', JSON.stringify(animals), (err)=>{
+            if (err) throw err;
+            res.send("Success! Pet deleted.");
+        });
     }else{
         res.send("Pet does not exist");
     }
