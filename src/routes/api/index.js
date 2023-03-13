@@ -45,9 +45,7 @@ router.post('/person', (req, res)=>{
 
     var users = {};
 
-    fs.readFile('src/sample/profile-person.json', (err, data) => {
-    if (err) throw err;
-    users = JSON.parse(data);
+    users = JSON.parse(persons);
 
     if(!users[fName]){
         users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"}
@@ -61,7 +59,5 @@ router.post('/person', (req, res)=>{
 
         res.send(users);
     });
-
-});
 
 module.exports = router;
