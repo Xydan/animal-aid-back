@@ -5,13 +5,6 @@ const fs = require('fs');
 const persons = require('../../sample/profile-person.json');
 const pets = require('../../sample/profile-pet.json');
 
-var users = {};
-
-fs.readFile('../../sample/profile-person.json', (err, data) => {
-    if (err) throw err;
-    users = JSON.parse(data);
-});
-
 // Create a router on which to mount our API endpoints
 const router = express.Router();
 
@@ -49,6 +42,13 @@ router.post('/person', (req, res)=>{
     var lName = parsedParams.lName;
     var desc = parsedParams.desc;
 
+
+    var users = {};
+
+    fs.readFile('../../sample/profile-person.json', (err, data) => {
+    if (err) throw err;
+    users = JSON.parse(data);
+
     if(!users[fName]){
         users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"}
     }
@@ -57,6 +57,9 @@ router.post('/person', (req, res)=>{
         if (err) throw err;
 
         res.send("Success!")
+    });
+
+
     });
 
 });
