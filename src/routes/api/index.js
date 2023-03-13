@@ -45,7 +45,7 @@ router.post('/person', (req, res)=>{
 
     var users = {};
 
-    users = JSON.parse(persons);
+    users = persons;
 
     if(!users[fName]){
         users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"}
