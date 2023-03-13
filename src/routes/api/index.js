@@ -55,7 +55,7 @@ router.post('/person', (req, res)=>{
     //     });
     // });
 
-        res.send(users);
+        res.send(req.body);
     });
 
 module.exports = router;
