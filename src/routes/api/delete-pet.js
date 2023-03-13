@@ -3,7 +3,7 @@ const {createErrorResponse} = require('../../response');
 const fs = require('fs');
 const pets = require('../../sample/profile-pet.json');
 
-(req, res)=>{
+module.exports = (req, res)=>{
     var name = req.body.name;
     var animals = pets;
 
