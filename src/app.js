@@ -5,6 +5,7 @@ const compression = require('compression');
 // const passport = require('passport');
 // const authenticate = require('./authorization/index');
 const { createErrorResponse } = require('./response');
+const bodyParser = require('body-parser');
 
 // const { version, author } = require('../package.json');
 
@@ -21,8 +22,8 @@ app.use(cors()); //x-origin
 app.use(compression()); //compression for middlware
 // passport.use(authenticate.strategy());
 // app.use(passport.initialize());
-app.use(express.bodyParser());
-app.use(express.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 
 app.use('/', require('./routes'));
 
