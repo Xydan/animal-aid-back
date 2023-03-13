@@ -1,7 +1,7 @@
 const express = require('express');
 const {createSuccessResponse  } = require('../../response');
 const {createErrorResponse} = require('../../response');
-const fs = require('fs');
+// const fs = require('fs');
 const persons = require('../../sample/profile-person.json');
 const pets = require('../../sample/profile-pet.json');
 

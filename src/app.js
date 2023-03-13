@@ -5,6 +5,7 @@ const compression = require('compression');
 // const passport = require('passport');
 // const authenticate = require('./authorization/index');
 const { createErrorResponse } = require('./response');
+const bodyParser = require('body-parser');
 
 // const { version, author } = require('../package.json');
 
@@ -23,6 +24,11 @@ app.use(compression()); //compression for middlware
 // app.use(passport.initialize());
 
 app.use('/', require('./routes'));
+
+app.use(bodyParser.text({
+  inflate: true,
+  type: () => true,
+}));
 
 // app.get('/', (req, res) => {
 //   // Clients shouldn't cache this response (always request it fresh)
