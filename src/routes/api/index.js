@@ -52,7 +52,7 @@ router.post('/person', (req, res)=>{
         });
 
     }else{
-        res.send("User alredy exists.");
+        res.send("User already exists.");
     }
 });
 
@@ -68,7 +68,7 @@ router.put('/person', (req, res)=>{
 
         fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
             if (err) throw err;
-            res.send("Success! User written!");
+            res.send("Success! User modified!");
         });
 
     }else{
@@ -76,11 +76,22 @@ router.put('/person', (req, res)=>{
     }
 });
 
+router.delete('/person', (req, res)=>{
+    var fName = req.body.fName;
+    var users = persons;
+
+    if(users[fName]){
+        delete users[fName];
+        res.send("User deleted.");
+    }else{
+        res.send("User does not exist.");
+    }
+});
+
 
 router.post('/pet', (req, res)=>{
-
-    var name = req.body.fName;
-    var age = req.body.lName;
+    var name = req.body.name;
+    var age = req.body.age;
     var species = req.body.desc;
     var breed = req.body.breed;
 
@@ -101,9 +112,9 @@ router.post('/pet', (req, res)=>{
 });
 
 
-router.put('/person', (req, res)=>{
-    var name = req.body.fName;
-    var age = req.body.lName;
+router.put('/pet', (req, res)=>{
+    var name = req.body.name;
+    var age = req.body.age;
     var species = req.body.desc;
     var breed = req.body.breed;
 
@@ -114,10 +125,22 @@ router.put('/person', (req, res)=>{
 
         fs.writeFile('src/sample/profile-pet.json', JSON.stringify(animals), (err)=>{
             if (err) throw err;
-            res.send("Success! Pet written!");
+            res.send("Success! Pet modified!");
         });
     }else{
         res.send("Pet does not exist.");
+    }
+});
+
+router.delete('/pet', (req, res)=>{
+    var name = req.body.fName;
+    var animals = pets;
+
+    if(animals[name]){
+        delete animals[name];
+        res.send("Success! Pet deleted.");
+    }else{
+        res.send("Pet does not exist");
     }
 });
 
