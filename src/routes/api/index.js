@@ -45,7 +45,7 @@ router.post('/person', (req, res)=>{
 
     var users = {};
 
-    fs.readFile('../../sample/profile-person.json', (err, data) => {
+    fs.readFile('src/sample/profile-person.json', (err, data) => {
     if (err) throw err;
     users = JSON.parse(data);
 
@@ -53,9 +53,8 @@ router.post('/person', (req, res)=>{
         users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"}
     }
 
-    fs.writeFile('../../sample/profile-person.json', JSON.stringify(users), (err)=>{
+    fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
         if (err) throw err;
-
         res.send("Success!")
     });
 
