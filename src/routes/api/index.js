@@ -35,12 +35,10 @@ router.get('/pet', (req, res)=>{
 });
 
 router.post('/person', (req, res)=>{
-    // var parseMe = Object.keys(req.body)[0];
-    var parsedParams = JSON.parse(req.body);
 
-    var fName= parsedParams.fName;
-    var lName = parsedParams.lName;
-    var desc = parsedParams.desc;
+    var fName= req.body.fName;
+    var lName = req.body.lName;
+    var desc = req.body.desc;
 
 
     var users = {};
