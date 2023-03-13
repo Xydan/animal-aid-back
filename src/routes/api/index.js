@@ -35,23 +35,91 @@ router.get('/pet', (req, res)=>{
 });
 
 router.post('/person', (req, res)=>{
-
     var fName= req.body.fName;
     var lName = req.body.lName;
     var desc = req.body.desc;
 
 
     var users = {};
-
     users = persons;
 
     if(!users[fName]){
-        users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"}
-    }
+        users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"};
 
         fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
             if (err) throw err;
-            res.send("Success!")
+            res.send("Success! User written!");
         });
+
+    }else{
+        res.send("User alredy exists.");
+    }
 });
+
+router.put('/person', (req, res)=>{
+    var fName= req.body.fName;
+    var lName = req.body.lName;
+    var desc = req.body.desc;
+
+    var users = persons;
+
+    if(users[fName]){
+        users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"};
+
+        fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
+            if (err) throw err;
+            res.send("Success! User written!");
+        });
+
+    }else{
+        res.send("User does not exist.");
+    }
+});
+
+
+router.post('/pet', (req, res)=>{
+
+    var name = req.body.fName;
+    var age = req.body.lName;
+    var species = req.body.desc;
+    var breed = req.body.breed;
+
+   var animals = pets;
+
+    if(!animals[name]){
+        animals[name] = {"name": name, "age": age, "species": species, "breed": breed,  "profile-image":"https://source.unsplash.com/random/?animal"};
+    
+
+        fs.writeFile('src/sample/profile-pet.json', JSON.stringify(animals), (err)=>{
+            if (err) throw err;
+            res.send("Success! Pet written!");
+        });
+    }else{
+        res.send("Pet already exists!");
+    }
+
+});
+
+
+router.put('/person', (req, res)=>{
+    var name = req.body.fName;
+    var age = req.body.lName;
+    var species = req.body.desc;
+    var breed = req.body.breed;
+
+    var animals = pets;
+
+    if(animals[name]){
+        animals[name] = {"name": name, "age": age, "species": species, "breed": breed,  "profile-image":"https://source.unsplash.com/random/?animal"};
+
+        fs.writeFile('src/sample/profile-pet.json', JSON.stringify(animals), (err)=>{
+            if (err) throw err;
+            res.send("Success! Pet written!");
+        });
+    }else{
+        res.send("Pet does not exist.");
+    }
+});
+
+
 module.exports = router;
