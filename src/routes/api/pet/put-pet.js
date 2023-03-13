@@ -1,7 +1,7 @@
-const {createSuccessResponse  } = require('../../response');
-const {createErrorResponse} = require('../../response');
+const {createSuccessResponse  } = require('../../../response');
+const {createErrorResponse} = require('../../../response');
 const fs = require('fs');
-const pets = require('../../sample/profile-pet.json');
+const pets = require('../../../sample/profile-pet.json');
 
 module.exports = (req, res)=>{
     var name = req.body.name;

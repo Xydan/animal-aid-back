@@ -1,7 +1,7 @@
-const {createSuccessResponse} = require('../../response');
-const {createErrorResponse} = require('../../response');
+const {createSuccessResponse} = require('../../../response');
+const {createErrorResponse} = require('../../../response');
 const fs = require('fs');
-const persons = require('../../sample/profile-person.json');
+const persons = require('../../../sample/profile-person.json');
 
 module.exports = (req, res)=>{
     var email = req.body.email;

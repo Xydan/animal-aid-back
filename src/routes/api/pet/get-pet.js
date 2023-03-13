@@ -1,6 +1,6 @@
-const {createSuccessResponse  } = require('../../response');
-const {createErrorResponse} = require('../../response');
-const pets = require('../../sample/profile-pet.json');
+const {createSuccessResponse  } = require('../../../response');
+const {createErrorResponse} = require('../../../response');
+const pets = require('../../../sample/profile-pet.json');
 
 module.exports = (req, res)=>{
     var id = req.params.id;
