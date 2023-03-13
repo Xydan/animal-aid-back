@@ -1,8 +1,16 @@
 const express = require('express');
 const {createSuccessResponse  } = require('../../response');
 const {createErrorResponse} = require('../../response');
+const fs = require('fs');
 const persons = require('../../sample/profile-person.json');
 const pets = require('../../sample/profile-pet.json');
+
+var users = {};
+
+fs.readFile('../../sample/profile-person.json', (err, data) => {
+    if (err) throw err;
+    users = JSON.parse(data);
+});
 
 // Create a router on which to mount our API endpoints
 const router = express.Router();
@@ -31,6 +39,26 @@ router.get('/person', (req, res)=>{
 
 router.get('/pet', (req, res)=>{
     res.status(200).json(createSuccessResponse(pets));
+});
+
+router.post('/person', (req, res)=>{
+    var parseMe = Object.keys(req.body)[0];
+    var parsedParams = JSON.parse(parseMe);
+
+    var fName= parsedParams.fName;
+    var lName = parsedParams.lName;
+    var desc = parsedParams.desc;
+
+    if(!users[fName]){
+        users[fName] = {"fname": fName, "lName": lName, "desc" : desc, "profile-image": "https://source.unsplash.com/random/?people"}
+    }
+
+    fs.writeFile('../../sample/profile-person.json', JSON.stringify(users), (err)=>{
+        if (err) throw err;
+
+        res.send("Success!")
+    });
+
 });
 
 module.exports = router;
