@@ -1,22 +1,18 @@
 const express = require('express');
 const {createSuccessResponse  } = require('../../response');
-const persons = require('../../sample/profile-person.json');
 const pets = require('../../sample/profile-pet.json');
 
 // Create a router on which to mount our API endpoints
 const router = express.Router();
 
 //get all users or pets
-router.get('/person', (req, res)=>{
-    res.status(200).json(createSuccessResponse(persons));
-});
 
 router.get('/pet', (req, res)=>{
     res.status(200).json(createSuccessResponse(pets));
 });
 
 //get specific user or pet
-router.get('/person/:id', require('./user/get-user'));
+router.get('/person', require('./user/get-user'));
   
 router.get('/pet/:id', require('./pet/get-pet'));
 
