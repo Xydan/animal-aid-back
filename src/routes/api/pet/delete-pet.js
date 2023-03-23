@@ -1,20 +1,12 @@
 const {createSuccessResponse  } = require('../../../response');
 const {createErrorResponse} = require('../../../response');
-const fs = require('fs');
-const pets = require('../../../sample/profile-pet.json');
+const con = require('../mysql');
 
 module.exports = (req, res)=>{
-    var name = req.body.name;
-    var animals = pets;
+    var id = req.body.animal_ID;
 
-    if(animals[name]){
-        delete animals[name];
-
-        fs.writeFile('src/sample/profile-pet.json', JSON.stringify(animals), (err)=>{
-            if (err) throw err;
-            res.status(200).JSON(createSuccessResponse({"message": "Success! Pet deleted."}));
-        });
-    }else{
-        res.status(404).json(createErrorResponse(404, "Pet does not exist."));
-    }
+    con.query("DELETE FROM animal WHERE animal_ID = '" + id + "'", (err, result)=>{
+        if(err) res.status(404).json(createErrorResponse(404, err));
+        res.status(200).json(createSuccessResponse(result));
+    });
 }

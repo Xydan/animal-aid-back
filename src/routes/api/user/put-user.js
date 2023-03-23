@@ -12,7 +12,7 @@ module.exports = (req, res)=>{
     if(!email){
         res.status(404).json(createErrorResponse(404, "Email cannot be empty"));
     }else{
-        con.query(`UPDATE user SET first_name = '${fName}', last_name = '${lName||""}', description = '${desc||""}', profile_image = '${image||""}' WHERE email = '${email}'`, (err, result)=>{
+        con.query(`UPDATE user SET first_name = '${fName}', last_name = '${lName}', description = '${desc}', profile_image = '${image}' WHERE email = '${email}'`, (err, result)=>{
             if(err){
                 res.status(404).json(createErrorResponse(404, err));
             }else{
