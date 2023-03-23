@@ -4,11 +4,11 @@ const fs = require('fs');
 const persons = require('../../../sample/profile-person.json');
 
 module.exports = (req, res)=>{
-    var fName= req.body.fName;
-    var lName = req.body.lName;
-    var desc = req.body.desc;
-    var image = req.body.image;
-    var email = req.body.email; //primary key
+    var fName= req.body.first_name;
+    var lName = req.body.last_name;
+    var desc = req.body.description;
+    var image = req.body.profile_image;
+    var email = req.body.email; //pk
 
     var users = persons;
 

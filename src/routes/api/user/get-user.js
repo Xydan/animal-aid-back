@@ -3,7 +3,7 @@ const {createErrorResponse} = require('../../../response');
 const persons = require('../../../sample/profile-person.json');
 
 module.exports = (req, res)=>{
-    var id = req.params.id;
+    var id = req.params.email;
     if(persons[id]){
         res.status(200).json(createSuccessResponse(persons[id]));
     }else{
