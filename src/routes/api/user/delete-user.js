@@ -9,7 +9,6 @@ module.exports = (req, res)=>{
 
     if(users[email]){
         delete users[email];
-        
         fs.writeFile('src/sample/profile-person.json', JSON.stringify(users), (err)=>{
             if (err) throw err;
             res.status(200).JSON(createSuccessResponse({"message": "Success! User deleted."}));
