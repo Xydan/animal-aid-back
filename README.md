@@ -6,7 +6,7 @@
 api/pet (all pets)\
 api/pet?animal_ID={ID} (specific pet)\
 
-pet fields
+pet fields \
 var name = req.body.name;\
 var age = req.body.age;\
 var species = req.body.species;\
