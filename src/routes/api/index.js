@@ -8,6 +8,8 @@ router.get('/pet', require('./pet/get-pet'));
 
 router.get('/product', require('./product/get-product'));
 
+//get all pets from one user
+router.get('/person/pet', require('./pet/get-user-pets'));
 
 //create user or pet
 router.post('/person', require('./user/post-user'));

@@ -10,12 +10,13 @@ module.exports = (req, res)=>{
     var breed = req.body.breed;
     var image = req.body.image;
     var description = req.body.description;
+    var parent = req.body.parent;
     var id = crypto.randomUUID(); //
 
     if(!name){
         res.status(404).json(createErrorResponse(404, "Name cannot be empty"));
     }else{
-        con.query(`INSERT INTO animal (animal_ID, name, age, species, breed, image, description) VALUES ('${id}', '${name}', '${age}', '${species}', '${breed}', '${image}', '${description}')`, (err, result)=>{
+        con.query(`INSERT INTO animal (animal_ID, name, age, species, breed, image, description, parent) VALUES ('${id}', '${name}', '${age}', '${species}', '${breed}', '${image}', '${description}', '${parent}')`, (err, result)=>{
             if(err){
                 res.status(404).json(createErrorResponse(404, err));
             }else{
