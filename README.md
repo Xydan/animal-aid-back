@@ -2,11 +2,12 @@
 ## API: http://animalaidbackend-env.eba-bkistjdh.us-east-1.elasticbeanstalk.com/
 
 ## API Routes
-### Retrieve Pets
+### --Retrieve Pets
 api/pet (all pets)\
 api/pet?animal_ID={ID} (specific pet)\
 
-pet fields \
+
+#### --Pet Fields:
 var name = req.body.name;\
 var age = req.body.age;\
 var species = req.body.species;\
@@ -15,7 +16,7 @@ var image = req.body.image;\
 var description = req.body.description;\
 var parent = req.body.parent;\
 
-Product Fields \
+#### --Product Fields:
 var name = req.body.product_name;\
 var price = req.body.price;\
 var width = req.body.width_inches;\
@@ -28,10 +29,10 @@ var seller = req.body.seller;\
 var description = req.body.description;\
 var id = crypto.randomUUID();\
 
-### Retrieve People
+### --Retrieve People
 api/person (all people)\
 api/person?email={email} (specific user)
 
-### Retrieve Product
+### --Retrieve Product
 api/product\
 api/product?product_ID={ID}\
