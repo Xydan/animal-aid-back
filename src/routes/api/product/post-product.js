@@ -12,6 +12,7 @@ module.exports = (req, res)=>{
     var weight = req.body.weight_lbs;
     var maker = req.body.maker;
     var seller = req.body.seller;
+    var product_type = req.body.product_type;
     // var image = req.body.image;
     var description = req.body.description;
     var id = crypto.randomUUID(); //
@@ -21,8 +22,8 @@ module.exports = (req, res)=>{
     }else if(!seller){
         res.status(404).json(createErrorResponse(404, "Seller cannot be empty"));
     }else{
-        con.query(`INSERT INTO product (product_ID, product_name, description, price, width_inches, length_inches, height_inches, weight_lbs, maker, seller) 
-        VALUES ('${id}', '${name}', '${description}', '${price}', '${width}', '${length}','${height}','${weight}', '${maker}', '${seller}')`, (err, result)=>{
+        con.query(`INSERT INTO product (product_ID, product_name, description, price, width_inches, length_inches, height_inches, weight_lbs, maker, seller, product_type) 
+        VALUES ('${id}', '${name}', '${description}', '${price}', '${width}', '${length}','${height}','${weight}', '${maker}', '${seller}'), '${product_type}'`, (err, result)=>{
             if(err){
                 res.status(404).json(createErrorResponse(404, err));
             }else{
