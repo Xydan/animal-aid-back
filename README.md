@@ -34,5 +34,5 @@ api/person (all people)\
 api/person?email=email (specific user)
 
 ### --Retrieve Product
-api/product\
-api/product?product_ID=ID\
+api/product \
+api/product?product_ID=ID \
