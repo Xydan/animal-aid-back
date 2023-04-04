@@ -3,7 +3,7 @@ const {createErrorResponse} = require('../../../response');
 const con = require('../mysql');
 
 module.exports = (req, res)=>{
-    var parent = req.body.email;
+    var parent = req.query.email;
     var string = parent? `WHERE parent = '${parent}'` : ""; 
 
     con.query(`SELECT * FROM animal ${string}`, (err, result)=>{

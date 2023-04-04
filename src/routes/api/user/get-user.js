@@ -3,7 +3,7 @@ const {createErrorResponse} = require('../../../response');
 const con = require('../mysql');
 
 module.exports = (req, res)=>{
-    var id = req.body.email;
+    var id = req.query.email;
     var string = id? `WHERE email = '${id}'` : ""; 
 
     con.query(`SELECT * FROM user ${string}`, (err, result)=>{
