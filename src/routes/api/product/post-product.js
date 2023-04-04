@@ -23,7 +23,7 @@ module.exports = (req, res)=>{
         res.status(404).json(createErrorResponse(404, "Seller cannot be empty"));
     }else{
         con.query(`INSERT INTO product (product_ID, product_name, description, price, width_inches, length_inches, height_inches, weight_lbs, maker, seller, product_type) 
-        VALUES ('${id}', '${name}', '${description}', '${price}', '${width}', '${length}','${height}','${weight}', '${maker}', '${seller}'), '${product_type}'`, (err, result)=>{
+        VALUES ('${id}', '${name}', '${description}', '${price}', '${width}', '${length}','${height}','${weight}', '${maker}', '${seller}', '${product_type}')`, (err, result)=>{
             if(err){
                 res.status(404).json(createErrorResponse(404, err));
             }else{
