@@ -8,6 +8,8 @@ router.get('/pet', require('./pet/get-pet'));
 
 router.get('/product', require('./product/get-product'));
 
+router.get('/search', require('./search/get-search'));
+
 //get all pets from one user
 router.get('/person/pet', require('./pet/get-user-pets'));
 
