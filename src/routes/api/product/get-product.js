@@ -3,7 +3,7 @@ const {createErrorResponse} = require('../../../response');
 const con = require('../mysql');
 
 module.exports = (req, res)=>{
-    var id = req.query.id;
+    var id = req.query.product_ID;
     var string = id? `WHERE product_id = '${id}'` : ""; 
 
     con.query(`SELECT * FROM product ${string}`, (err, result)=>{
