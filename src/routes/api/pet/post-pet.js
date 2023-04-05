@@ -8,7 +8,7 @@ module.exports = (req, res)=>{
     var age = req.body.age;
     var species = req.body.species;
     var breed = req.body.breed;
-    var image = req.body.image;
+    var image = req.body.image.toString("base64");
     var description = req.body.description;
     var parent = req.body.parent;
     var id = crypto.randomUUID(); //
