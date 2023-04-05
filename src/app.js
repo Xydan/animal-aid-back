@@ -23,7 +23,7 @@ app.use(compression()); //compression for middlware
 // passport.use(authenticate.strategy());
 // app.use(passport.initialize());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/', require('./routes'));
 
