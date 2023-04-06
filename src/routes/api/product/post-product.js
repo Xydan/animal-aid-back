@@ -27,7 +27,7 @@ module.exports = (req, res)=>{
     var maker = req.body.maker;
     var seller = req.body.seller;
     var product_type = req.body.product_type;
-    var image_01 = decodeBase64Image(req.body.image_01);
+    var image_01 = req.body.image_01;
     var description = req.body.description;
     var id = crypto.randomUUID(); //
 
