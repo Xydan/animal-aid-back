@@ -3,6 +3,20 @@ const {createErrorResponse} = require('../../../response');
 const crypto = require('crypto');
 const con = require('../mysql');
 
+function decodeBase64Image(dataString) {
+    var matches = dataString.match(/^data:([A-Za-z-+/]+);base64,(.+)$/),
+      response = {};
+  
+    if (matches.length !== 3) {
+      return new Error('Invalid input string');
+    }
+  
+    response.type = matches[1];
+    response.data = new Buffer(matches[2], 'base64');
+  
+    return response;
+  }
+
 module.exports = (req, res)=>{
     var name = req.body.product_name;
     var price = req.body.price;
@@ -13,7 +27,7 @@ module.exports = (req, res)=>{
     var maker = req.body.maker;
     var seller = req.body.seller;
     var product_type = req.body.product_type;
-    var image_01 = req.body.image_01;
+    var image_01 = decodeBase64Image(req.body.image_01);
     var description = req.body.description;
     var id = crypto.randomUUID(); //
 
